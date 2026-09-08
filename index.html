@@ -341,11 +341,11 @@
                                             <li><strong>해결 방법:</strong> <code>IN</code> 절을 <code>EXISTS</code> 절로 변경하여 쿼리를 튜닝했습니다. 이를 통해 DB 엔진이 조건을 만족하는 첫 번째 레코드를 찾는 즉시 스캔을 멈추게(Short-circuit evaluation) 유도하여 실행 계획 비용(Cost)을 크게 낮추고, 기존 15초 이상 소요되던 응답 시간을 0.2초 이내로 단축하여 30만건 상품 데이터 환경에서도 완벽한 조회 성능을 확보했습니다.</li>
                                         </ul>
                                     </li>
-                                    <li style="margin-bottom: 1.5rem;"><strong>[DB 인프라] pgPool2 도입을 통한 커넥션 풀링 및 DB 부하 분산</strong>
+                                    <li style="margin-bottom: 1.5rem;"><strong>[DB 인프라] pgPool2 도입을 통한 데이터베이스 고가용성(HA) 확보</strong>
                                         <ul class="sub-list">
-                                            <li><strong>문제 인지 (어쩌다 찾았는지):</strong> 전국 400여 개 매장에서 동시다발적으로 DB 연결 요청이 집중되면서, PostgreSQL 서버의 커넥션 수가 한계치에 근접하여 응답 지연 및 연결 거부 오류가 간헐적으로 발생하는 것을 발견했습니다.</li>
-                                            <li><strong>원인 분석:</strong> 각 매장 서버 프로세스가 PostgreSQL에 직접 연결하는 구조여서, 동시 접속 수가 DB의 <code>max_connections</code> 한계를 초과하면 신규 연결 자체가 거부되는 병목이 발생했습니다.</li>
-                                            <li><strong>해결 방법:</strong> DB와 애플리케이션 사이에 <strong>pgPool2</strong>를 미들웨어로 도입했습니다. pgPool2의 커넥션 풀링(Connection Pooling) 기능을 통해 다수의 클라이언트 연결을 소수의 실제 DB 연결로 묶어 처리하도록 구성하여 DB 서버의 부하를 안정적으로 분산시키고 커넥션 고갈 문제를 해결했습니다.</li>
+                                            <li><strong>문제 인지 (어쩌다 찾았는지):</strong> 특정 핵심 고객사 사이트에서 단일 DB 서버 장애 발생 시 전체 서비스가 중단될 수 있는 단일 장애점(SPOF) 리스크가 컸습니다. 365일 무중단 운영이 필수적인 환경이었습니다.</li>
+                                            <li><strong>원인 분석:</strong> 기존 아키텍처는 단일 PostgreSQL 서버에만 의존하고 있어, 하드웨어 장애나 네트워크 단절 시 자동 복구 및 페일오버(Failover) 처리가 불가능했습니다.</li>
+                                            <li><strong>해결 방법:</strong> 애플리케이션과 DB 사이에 <strong>pgPool2</strong>를 도입하여 고가용성(High Availability) 아키텍처를 구축했습니다. Primary DB 장애 감지 시 자동으로 Standby DB로 트래픽을 넘기는 <strong>자동 페일오버(Auto Failover)</strong> 환경을 구성하여, 예상치 못한 DB 장애 시에도 서비스 다운타임을 최소화했습니다.</li>
                                         </ul>
                                     </li>
                                 </ul>
