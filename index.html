@@ -268,6 +268,7 @@
                                 <div class="tech-badges">
                                     <span class="tech-badge">Java (Spring Boot)</span>
                                     <span class="tech-badge">PostgreSQL</span>
+                                    <span class="tech-badge">pgPool2</span>
                                     <span class="tech-badge">RabbitMQ</span>
                                     <span class="tech-badge">EXPLAIN ANALYZE</span>
                                 </div>
@@ -329,6 +330,13 @@
                                             <li><strong>문제 인지 (어쩌다 찾았는지):</strong> 중앙 관제 서버에서 특정 조건을 만족하는 상품 정보를 조회하는 API의 응답 시간이 데이터베이스 내 상품 데이터가 누적됨에 따라 눈에 띄게 느려지는 현상을 발견했습니다.</li>
                                             <li><strong>원인 분석:</strong> <code>EXPLAIN ANALYZE</code>를 통해 쿼리 실행 계획(Execution Plan)을 프로파일링해 본 결과, 기존 <code>IN</code> 절을 사용한 서브쿼리가 수십만 건의 결과를 반환하면서 비효율적인 Full Scan과 반복 탐색이 발생하여 병목을 유발하는 것을 정확히 확인했습니다.</li>
                                             <li><strong>해결 방법:</strong> <code>IN</code> 절을 <code>EXISTS</code> 절로 변경하여 쿼리를 튜닝했습니다. 이를 통해 DB 엔진이 조건을 만족하는 첫 번째 레코드를 찾는 즉시 스캔을 멈추게(Short-circuit evaluation) 유도하여 실행 계획 비용(Cost)을 크게 낮추고, 기존 15초 이상 소요되던 응답 시간을 0.2초 이내로 단축하여 30만건 상품 데이터 환경에서도 완벽한 조회 성능을 확보했습니다.</li>
+                                        </ul>
+                                    </li>
+                                    <li style="margin-bottom: 1.5rem;"><strong>[DB 인프라] pgPool2 도입을 통한 커넥션 풀링 및 DB 부하 분산</strong>
+                                        <ul class="sub-list">
+                                            <li><strong>문제 인지 (어쩌다 찾았는지):</strong> 전국 400여 개 매장에서 동시다발적으로 DB 연결 요청이 집중되면서, PostgreSQL 서버의 커넥션 수가 한계치에 근접하여 응답 지연 및 연결 거부 오류가 간헐적으로 발생하는 것을 발견했습니다.</li>
+                                            <li><strong>원인 분석:</strong> 각 매장 서버 프로세스가 PostgreSQL에 직접 연결하는 구조여서, 동시 접속 수가 DB의 <code>max_connections</code> 한계를 초과하면 신규 연결 자체가 거부되는 병목이 발생했습니다.</li>
+                                            <li><strong>해결 방법:</strong> DB와 애플리케이션 사이에 <strong>pgPool2</strong>를 미들웨어로 도입했습니다. pgPool2의 커넥션 풀링(Connection Pooling) 기능을 통해 다수의 클라이언트 연결을 소수의 실제 DB 연결로 묶어 처리하도록 구성하여 DB 서버의 부하를 안정적으로 분산시키고 커넥션 고갈 문제를 해결했습니다.</li>
                                         </ul>
                                     </li>
                                 </ul>
