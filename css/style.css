@@ -102,8 +102,8 @@ nav a:hover {
 }
 
 .profile-img {
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1.5rem;
@@ -501,7 +501,7 @@ details.sub-project-card[open] .toggle-icon {
 .intro-tags {
     display: flex;
     gap: 0.75rem;
-    justify-content: center;
+    justify-content: left;
     margin-bottom: 1.5rem;
 }
 
