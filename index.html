@@ -33,9 +33,13 @@
 
     <main class="container">
         <!-- Hero Section -->
-        <section id="about" class="hero">
-            <img src="images/증명사진.jpg" alt="방아현 프로필 사진" class="profile-img">
-            <span class="badge">5년 차 풀스택 개발자</span>
+        <section id="about" class="hero fade-up">
+            <div style="display: block;">
+                <div class="profile-wrapper">
+                    <img src="images/증명사진.jpg" alt="방아현 프로필 사진" class="profile-img">
+                </div>
+            </div>
+            <span class="badge" style="margin-top: 20px;">5년 차 풀스택 개발자</span>
             <div class="intro-tags">
                 <span class="tech-tag java-tag">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="#6DB33F"><path d="M21.996 0s-2.074.004-5.362 1.341c-3.14 1.284-6.425 4.39-8.473 8.358C7.55 10.887 7.025 12.3 6.84 13.882c-1.536-1.528-3.056-2.585-3.056-2.585s-.208.795-1.077 3.324c-.958 2.793-1.688 6.442-2.115 8.948l-.592 1.258s.907-.639 2.508-1.565c4.787-2.775 9.172-3.167 9.172-3.167s-1.075 1.777-1.411 3.238l.608-.184s2.003-3.666 4.774-8.835c2.47-4.606 5.864-12.012 5.864-12.012l.483-2.302z"/></svg>
@@ -46,10 +50,10 @@
                     JavaScript (Vue.js)
                 </span>
             </div>
-            <h1 class="name">방아현</h1>
-            <p class="intro" style="margin-top: 1.2rem;  margin-left: 0; margin-right: 0; font-size: 1.05rem; line-height: 1.8; color: var(--text-primary); text-align: left; word-break: keep-all;">
-                5년간 CJ 올리브영·롯데마트 등 <strong style="color: var(--accent-color); font-weight: 700;">전국 수백 개 매장에 실제 서비스되는 ESL 시스템</strong>을 개발·운영했습니다.<br>
-                15초 걸리던 상품 조회를 0.2초로 단축하고, 배포 장애율을 0%로 만들어가는 과정에서 "기능이 동작하는 코드"보다 <strong style="position: relative; display: inline-block; z-index: 1; padding: 0 4px; font-weight: 700;">"내일도 버텨주는 시스템"<span style="position: absolute; bottom: 4px; left: 0; width: 100%; height: 35%; background-color: var(--accent-color); opacity: 0.2; z-index: -1; border-radius: 2px;"></span></strong>을 짜는 일에 관심을 갖게 되었습니다.
+            <h1 class="name primary-text">방아현</h1>
+            <p class="intro">
+                5년간 CJ 올리브영·롯데마트 등 <strong class="accent-highlight">전국 수백 개 매장에 실제 서비스되는 ESL 시스템</strong>을 개발·운영했습니다.<br>
+                15초 걸리던 상품 조회를 0.2초로 단축하고, 배포 장애율을 0%로 만들어가는 과정에서 "기능이 동작하는 코드"보다 <strong class="accent-highlight">"내일도 버텨주는 시스템"</strong>을 짜는 일에 관심을 갖게 되었습니다.
             </p>
             <div class="contact-info">
                 <a href="mailto:ahyeon1117@naver.com" class="link-item">📧 ahyeon1117@naver.com</a>
@@ -61,39 +65,39 @@
         </section>
         
         <!-- Highlight Banner -->
-        <section style="max-width: 750px; margin: 3rem auto 4rem; display: flex; justify-content: space-around; align-items: center; padding: 2rem 0; border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06);">
-            <div style="text-align: center;">
-                <div style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.4rem; letter-spacing: -0.5px;">15초 <span style="color: var(--accent-color);">➔</span> 0.2초</div>
-                <div style="font-size: 0.95rem; font-weight: 500; color: var(--text-secondary);">DB 조회 쿼리 최적화</div>
+        <section class="stats-banner fade-up">
+            <div class="stat-item">
+                <div class="stat-value">15초 <span class="primary-text">➔</span> 0.2초</div>
+                <div class="stat-label">DB 조회 쿼리 최적화</div>
             </div>
-            <div style="width: 1px; height: 50px; background-color: rgba(0,0,0,0.08);"></div>
-            <div style="text-align: center;">
-                <div style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.4rem; letter-spacing: -0.5px;">99.9<span style="color: var(--accent-color);">%</span></div>
-                <div style="font-size: 0.95rem; font-weight: 500; color: var(--text-secondary);">무장애 배포 달성</div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-value">99.9<span class="primary-text">%</span></div>
+                <div class="stat-label">무장애 배포 달성</div>
             </div>
-            <div style="width: 1px; height: 50px; background-color: rgba(0,0,0,0.08);"></div>
-            <div style="text-align: center;">
-                <div style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.4rem; letter-spacing: -0.5px;">60<span style="color: var(--accent-color);">%</span> <span style="font-size: 1.3rem;">🔻</span></div>
-                <div style="font-size: 0.95rem; font-weight: 500; color: var(--text-secondary);">빌드 파이프라인 단축</div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-value">60<span class="primary-text">%</span> <span style="font-size: 1.3rem;">🔻</span></div>
+                <div class="stat-label">빌드 파이프라인 단축</div>
             </div>
         </section>
 
         <!-- Tech Stack Section -->
-        <section id="skills" class="section">
+        <section id="skills" class="section fade-up">
             <h2 class="section-title">Tech Stack</h2>
             
-            <div class="skill-legend" style="background: var(--bg-secondary); border-radius: 12px; padding: 1.5rem; max-width: 800px; margin: 0 auto 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; justify-content: center; border: 1px solid rgba(0,0,0,0.03); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.6rem; text-align: center;">
-                    <span style="padding: 0.25rem 0.8rem; background: var(--bg-color); border-radius: 6px; color: var(--link-color); font-weight: 700; font-size: 0.85rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">주력 기술</span>
-                    <span style="color: var(--text-primary); font-size: 0.9rem; font-weight: 500; line-height: 1.4;">설계부터 배포까지<br>주도적으로 수행</span>
+            <div class="skill-legend-container fade-up">
+                <div class="skill-legend-item">
+                    <span class="legend-badge primary">주력 기술</span>
+                    <span class="legend-desc">설계부터 배포까지<br>주도적으로 수행</span>
                 </div>
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.6rem; text-align: center;">
-                    <span style="padding: 0.25rem 0.8rem; background: var(--bg-color); border-radius: 6px; color: var(--link-color); font-weight: 700; font-size: 0.85rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">실무 능숙</span>
-                    <span style="color: var(--text-primary); font-size: 0.9rem; font-weight: 500; line-height: 1.4;">실무 프로젝트 투입 및<br>능숙한 활용</span>
+                <div class="skill-legend-item">
+                    <span class="legend-badge primary">실무 능숙</span>
+                    <span class="legend-desc">실무 프로젝트 투입 및<br>능숙한 활용</span>
                 </div>
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.6rem; text-align: center;">
-                    <span style="padding: 0.25rem 0.8rem; background: var(--bg-color); border-radius: 6px; color: var(--text-secondary); font-weight: 700; font-size: 0.85rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">기본 지식</span>
-                    <span style="color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; line-height: 1.4;">기본 구조 이해 및<br>유지보수 가능</span>
+                <div class="skill-legend-item">
+                    <span class="legend-badge secondary">기본 지식</span>
+                    <span class="legend-desc">기본 구조 이해 및<br>유지보수 가능</span>
                 </div>
             </div>
 
@@ -174,7 +178,7 @@
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="section">
+        <section id="experience" class="section fade-up">
             <h2 class="section-title">Work Experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
@@ -214,10 +218,10 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="section">
+        <section id="projects" class="section fade-up">
             <h2 class="section-title">Key Projects</h2>
 
-            <div class="project-card company-group">
+            <div class="project-card company-group fade-up">
                 <div class="company-header">
                     <h3>주식회사 디토닉 (DTONIC)</h3>
                     <p class="project-role">2020.09 ~ 2024.08</p>
@@ -429,7 +433,7 @@
                 </div>
             </div>
 
-            <div class="project-card company-group">
+            <div class="project-card company-group fade-up">
                 <div class="company-header">
                     <h3>주식회사 글렉 (GLEC)</h3>
                     <p class="project-role">2025.05 ~ 2025.08</p>
@@ -473,7 +477,7 @@
                 </div>
             </div>
 
-            <div class="project-card company-group">
+            <div class="project-card company-group fade-up">
                 <div class="company-header">
                     <h3>주식회사 디이엠테크</h3>
                     <p class="project-role">2025.09 ~ 2026.07</p>
@@ -530,7 +534,7 @@
                 </div>
             </div>
 
-            <div class="project-card company-group">
+            <div class="project-card company-group fade-up">
                 <div class="company-header">
                     <h3>Side Projects</h3>
                     <p class="project-role">사이드 프로젝트 모음</p>
@@ -565,10 +569,10 @@
         </section>
 
         <!-- Working Style Section -->
-        <section id="working-style" class="section">
+        <section id="working-style" class="section fade-up">
             <h2 class="section-title">How I Work</h2>
             <div class="working-style-list">
-                <div class="working-style-item">
+                <div class="working-style-item fade-up">
                     <div class="ws-header">
                         <span class="ws-number">01</span>
                         <h3>성능과 효율을 고민하는 백엔드 개발</h3>
@@ -585,7 +589,7 @@
                     </div>
                 </div>
 
-                <div class="working-style-item">
+                <div class="working-style-item fade-up">
                     <div class="ws-header">
                         <span class="ws-number">02</span>
                         <h3>비즈니스 임팩트를 고려하는 풀스택 설계</h3>
@@ -604,7 +608,7 @@
 
 
 
-                <div class="working-style-item">
+                <div class="working-style-item fade-up">
                     <div class="ws-header">
                         <span class="ws-number">03</span>
                         <h3>애자일 기반의 리더십 (5~8인 개발팀 리딩)</h3>
@@ -624,7 +628,7 @@
         </section>
 
         <!-- Education Section -->
-        <section id="education" class="section">
+        <section id="education" class="section fade-up">
             <h2 class="section-title">Education</h2>
             <div class="timeline">
                 <div class="timeline-item">
@@ -641,7 +645,7 @@
         </section>
 
         <!-- Certificates Section -->
-        <section id="certificates" class="section">
+        <section id="certificates" class="section fade-up">
             <h2 class="section-title">Certificates</h2>
             <div class="timeline">
                 <div class="timeline-item">
@@ -700,6 +704,19 @@
             themeIcon.style.stroke = '#3b82f6';
             themeIcon.style.fill = '#3b82f6';
         }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optional: observer.unobserve(entry.target); if we only want it to animate once
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 </html>
